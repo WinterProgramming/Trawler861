@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqtt8uiir5ufq"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/void_storm.gd" id="1_dmbiu"]
+[ext_resource type="Texture2D" uid="uid://cexyyapmd64ae" path="res://Sprites/storm_cloud.png" id="2_kcndn"]
+[ext_resource type="AudioStream" uid="uid://nhynx1ceqk6k" path="res://Audio/thunder_1.ogg" id="2_oy6cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b3br"]
+size = Vector2(1965, 1801)
+
+[node name="Storm" type="Node2D" node_paths=PackedStringArray("thunder_audio", "thunder_light")]
+script = ExtResource("1_dmbiu")
+thunder_audio = NodePath("ThunderAudio")
+thunder_streams = Array[AudioStream]([ExtResource("2_oy6cg")])
+thunder_light = NodePath("PointLight2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-604, -540)
+texture = ExtResource("2_kcndn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(180, -584)
+rotation = 0.691499
+texture = ExtResource("2_kcndn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(664, -524)
+texture = ExtResource("2_kcndn")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(629, 303)
+rotation = 0.268789
+texture = ExtResource("2_kcndn")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(-621, 162)
+rotation = 1.30812
+texture = ExtResource("2_kcndn")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(-86, 430)
+rotation = 3.08768
+texture = ExtResource("2_kcndn")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(47, -57)
+rotation = 3.08768
+texture = ExtResource("2_kcndn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(43.5, -50.5)
+shape = SubResource("RectangleShape2D_2b3br")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-16, -68)
+scale = Vector2(2.42969, 2.35156)
+energy = 0.0
+texture = ExtResource("2_kcndn")
+
+[node name="ThunderAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_oy6cg")
+volume_db = 6.559
+autoplay = true
+max_distance = 6000.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

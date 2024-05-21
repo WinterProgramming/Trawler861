@@ -1,0 +1,2072 @@
+[gd_scene load_steps=75 format=3 uid="uid://clh7b02htn6iq"]
+
+[ext_resource type="Texture2D" uid="uid://bahxra58ur04h" path="res://Sprites/player_ship.png" id="1_1s231"]
+[ext_resource type="Texture2D" uid="uid://dhhh4ecjwohyw" path="res://Sprites/skelter_base.png" id="1_7eqdd"]
+[ext_resource type="Script" path="res://Scripts/Manager/game_manager.gd" id="1_bp1kp"]
+[ext_resource type="Script" path="res://Scripts/Scripting/tutorial_script.gd" id="1_f0xt2"]
+[ext_resource type="Script" path="res://Scripts/Ship/player_ship.gd" id="1_jn11h"]
+[ext_resource type="PackedScene" uid="uid://dj408wuoohmg7" path="res://Scenes/Ship/tow_line.tscn" id="2_2l6yl"]
+[ext_resource type="Script" path="res://Scripts/Ship/player_camera.gd" id="2_61g5i"]
+[ext_resource type="Script" path="res://Scripts/Environment/scannable.gd" id="2_kb3e8"]
+[ext_resource type="AudioStream" uid="uid://dtwcqnrfqgugv" path="res://Audio/game.ogg" id="2_kjufw"]
+[ext_resource type="Script" path="res://Scripts/Environment/skelter_docking_interaction.gd" id="3_5ohsr"]
+[ext_resource type="Texture2D" uid="uid://csqpk3s2n0pdc" path="res://Sprites/player_shield_forward.png" id="4_l2ywb"]
+[ext_resource type="Script" path="res://Scripts/Ship/space_tunnel.gd" id="4_yjmyg"]
+[ext_resource type="Texture2D" uid="uid://cuxkabfap3xir" path="res://Sprites/galaxy_tunnel.png" id="5_1xyw8"]
+[ext_resource type="AudioStream" uid="uid://b2w8k434vl72x" path="res://Audio/crash_1.ogg" id="5_78q66"]
+[ext_resource type="Texture2D" uid="uid://b7mjlgmug0hws" path="res://Sprites/player_shield_aft.png" id="5_fp26h"]
+[ext_resource type="Script" path="res://Scripts/Ship/shield_system.gd" id="5_oup4t"]
+[ext_resource type="AudioStream" uid="uid://digetsqy742pk" path="res://Audio/crash_2.ogg" id="6_ovoev"]
+[ext_resource type="Script" path="res://Scripts/Ship/shield.gd" id="7_dkd0e"]
+[ext_resource type="AudioStream" uid="uid://iti4x3sca7kj" path="res://Audio/spark_1.ogg" id="7_hc8io"]
+[ext_resource type="AudioStream" uid="uid://ilcrpbxfaonw" path="res://Audio/spark_2.ogg" id="8_x4nll"]
+[ext_resource type="AudioStream" uid="uid://c0pegl325jgc0" path="res://Audio/engine_loop.ogg" id="8_ydkiw"]
+[ext_resource type="PackedScene" uid="uid://bqjbjyrmtpxrp" path="res://Scenes/Environment/common_loot.tscn" id="9_351d5"]
+[ext_resource type="AudioStream" uid="uid://by76w7bopllua" path="res://Audio/spark_3.ogg" id="9_ltdfb"]
+[ext_resource type="Script" path="res://Scripts/UI/game_ui.gd" id="10_ww45e"]
+[ext_resource type="FontFile" uid="uid://depucenggg67x" path="res://Fonts/LcdPhone-wgZ2.ttf" id="11_7cku6"]
+[ext_resource type="Script" path="res://Scripts/UI/ship_ui.gd" id="11_hssbd"]
+[ext_resource type="AudioStream" uid="uid://d2f14a8skvbyo" path="res://Audio/shield_broken.ogg" id="11_rbhkf"]
+[ext_resource type="AudioStream" uid="uid://bdvx82mbb2g87" path="res://Audio/shield_restored.ogg" id="12_oa06w"]
+[ext_resource type="PackedScene" uid="uid://wxbj2sc7d4mk" path="res://Scenes/UI/scanner_widget.tscn" id="12_pck3s"]
+[ext_resource type="Texture2D" uid="uid://024ub7om6pqt" path="res://Sprites/nebula.png" id="12_urbyl"]
+[ext_resource type="Script" path="res://Scripts/Environment/void_teleport_interaction.gd" id="15_ct0ov"]
+[ext_resource type="Script" path="res://Scripts/Manager/void_manager.gd" id="17_gdrky"]
+[ext_resource type="Texture2D" uid="uid://o7xvpbkvu0at" path="res://Sprites/UI/while_circle_small.png" id="17_x50ai"]
+[ext_resource type="Texture2D" uid="uid://drv3fmgblmrdf" path="res://Sprites/UI/radar_screen.png" id="18_kx4pd"]
+[ext_resource type="Script" path="res://Scripts/Environment/warp_tunnel.gd" id="20_hctpi"]
+[ext_resource type="PackedScene" uid="uid://b6qv5tcnw6pjp" path="res://Scenes/Environment/rare_loot.tscn" id="20_ohyy0"]
+[ext_resource type="PackedScene" uid="uid://cnaismvv2y3t1" path="res://Scenes/Environment/unique_loot.tscn" id="22_mhwug"]
+[ext_resource type="Script" path="res://Scripts/UI/radio_ui.gd" id="23_4ypoj"]
+[ext_resource type="PackedScene" uid="uid://dqtt8uiir5ufq" path="res://Scenes/Environment/void_storm.tscn" id="23_ccchq"]
+[ext_resource type="PackedScene" uid="uid://cswq5f2f6rb58" path="res://Scenes/Environment/hazard_wall_1.tscn" id="24_7mt7k"]
+[ext_resource type="PackedScene" uid="uid://ibkehnofhbw5" path="res://Scenes/UI/radio_label.tscn" id="24_monpl"]
+[ext_resource type="Script" path="res://Scripts/UI/radar_ui.gd" id="25_a244m"]
+[ext_resource type="Texture2D" uid="uid://bmso4w2jjl4yt" path="res://Sprites/UI/ship_background.png" id="29_fs228"]
+[ext_resource type="Script" path="res://Scripts/UI/skelter_ui.gd" id="30_p1njf"]
+[ext_resource type="AudioStream" uid="uid://cgog07u6qibxn" path="res://Audio/radio_chat_start.ogg" id="31_xtrtr"]
+[ext_resource type="Texture2D" uid="uid://bu084th0loeh3" path="res://Sprites/UI/shield_ui.png" id="31_yqtvb"]
+[ext_resource type="PackedScene" uid="uid://bvbsq43vunq6d" path="res://Scenes/Environment/hazard_wall_2.tscn" id="32_hofcr"]
+[ext_resource type="PackedScene" uid="uid://fs3q206rgnuc" path="res://Scenes/Environment/mine.tscn" id="32_ny653"]
+[ext_resource type="Texture2D" uid="uid://d1kd273ttn6n1" path="res://Sprites/UI/hull_ui.png" id="33_fdrhc"]
+[ext_resource type="Texture2D" uid="uid://gajsnjp8esr0" path="res://Sprites/UI/radar_screen_background.png" id="33_rfhvc"]
+[ext_resource type="Script" path="res://Scripts/UI/deliver_page.gd" id="34_d4tec"]
+[ext_resource type="Script" path="res://Scripts/UI/progress_ui.gd" id="34_yci66"]
+[ext_resource type="Texture2D" uid="uid://dfwyfvru50rsv" path="res://Sprites/UI/radar_screen_overlay.png" id="35_5rru7"]
+[ext_resource type="Script" path="res://Scripts/UI/scanner_ui.gd" id="36_j1ioa"]
+[ext_resource type="Script" path="res://Scripts/UI/report_ui.gd" id="43_8jslf"]
+[ext_resource type="AudioStream" uid="uid://c2e3d5r4lqs77" path="res://Audio/skelter_ambient0.ogg" id="43_gpn13"]
+[ext_resource type="Script" path="res://Scripts/UI/basic_button.gd" id="49_k515r"]
+[ext_resource type="Script" path="res://Scripts/UI/shipyard_page.gd" id="53_1jqce"]
+[ext_resource type="Script" path="res://Scripts/UI/pause_ui.gd" id="58_saigo"]
+[ext_resource type="Script" path="res://Scripts/UI/input-ui.gd" id="59_3efvv"]
+[ext_resource type="Script" path="res://Scripts/UI/lose_ui.gd" id="62_iejmy"]
+[ext_resource type="Script" path="res://Scripts/UI/game_over_ui.gd" id="63_iv1s5"]
+[ext_resource type="Script" path="res://Scripts/UI/win_ui.gd" id="64_kf6de"]
+
+[sub_resource type="Environment" id="Environment_u4fia"]
+glow_enabled = true
+glow_intensity = 1.0
+glow_bloom = 0.03
+glow_blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw12v"]
+size = Vector2(18189, 817)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6l4m"]
+size = Vector2(769, 17134)
+
+[sub_resource type="Animation" id="Animation_18by7"]
+resource_name = "IntroCutscene"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HomeSpace/PlayerShip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0.277392, 1),
+"update": 0,
+"values": [Vector2(-5000, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1icwp"]
+_data = {
+"IntroCutscene": SubResource("Animation_18by7")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkcnk"]
+radius = 2588.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfnat"]
+radius = 107.019
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4rbou"]
+radius = 1126.28
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g31gj"]
+radius = 167.012
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgen2"]
+size = Vector2(689, 613)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ucw35"]
+radius = 16351.3
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("void_tunnel", "respawn_point")]
+script = ExtResource("1_bp1kp")
+void_tunnel = NodePath("HomeSpace/VoidTunnel")
+respawn_point = NodePath("RespawnPosition")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kjufw")
+volume_db = -6.0
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u4fia")
+
+[node name="RespawnPosition" type="Node2D" parent="."]
+position = Vector2(4099, -1474)
+
+[node name="WorldArea" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="WorldArea"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldArea/RigidBody2D"]
+position = Vector2(-7439, -19)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_nw12v")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldArea/RigidBody2D"]
+position = Vector2(9496, -19)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_nw12v")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldArea/RigidBody2D"]
+position = Vector2(1383.97, -8595.5)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_x6l4m")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldArea/RigidBody2D"]
+position = Vector2(1383.97, 8595)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_x6l4m")
+
+[node name="Scripting" type="Node2D" parent="."]
+
+[node name="Tutorial" type="Node2D" parent="Scripting" node_paths=PackedStringArray("cutscene_player", "skelter_interaction")]
+script = ExtResource("1_f0xt2")
+cutscene_player = NodePath("Cutscenes")
+skelter_interaction = NodePath("../../HomeSpace/Skelter/Interaction")
+
+[node name="Cutscenes" type="AnimationPlayer" parent="Scripting/Tutorial"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_1icwp")
+}
+
+[node name="HomeSpace" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="HomeSpace"]
+z_index = 10
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("2_61g5i")
+
+[node name="PlayerShip" type="RigidBody2D" parent="HomeSpace" node_paths=PackedStringArray("visual", "shield_system", "tow_lines", "scan_area", "scan_shape", "space_tunnel", "engine_particles", "engine_audio", "crash_audio", "spark_audio", "spark_particles")]
+z_index = 1
+gravity_scale = 0.0
+max_contacts_reported = 4
+contact_monitor = true
+script = ExtResource("1_jn11h")
+visual = NodePath("Visual")
+shield_system = NodePath("Visual/Shields")
+tow_lines = [NodePath("Visual/Lines/TowLine"), NodePath("Visual/Lines/TowLine2"), NodePath("Visual/Lines/TowLine3"), NodePath("Visual/Lines/TowLine4"), NodePath("Visual/Lines/Buy1"), NodePath("Visual/Lines/Buy2")]
+scan_area = NodePath("ScanRange")
+scan_shape = NodePath("ScanRange/CollisionShape2D")
+space_tunnel = NodePath("Tunnel")
+engine_particles = NodePath("Visual/Engine/CPUParticles2D")
+engine_audio = NodePath("Visual/Engine/EngineAudio")
+crash_audio = NodePath("CrashAudio")
+crash_streams = Array[AudioStream]([ExtResource("5_78q66"), ExtResource("6_ovoev")])
+spark_audio = NodePath("Visual/Sparks/SparksAudio")
+spark_streams = Array[AudioStream]([ExtResource("7_hc8io"), ExtResource("8_x4nll"), ExtResource("9_ltdfb")])
+spark_particles = [NodePath("Visual/Sparks/Sparks"), NodePath("Visual/Sparks/Sparks2"), NodePath("Visual/Sparks/Sparks3"), NodePath("Visual/Sparks/Sparks4"), NodePath("Visual/Sparks/Sparks5")]
+
+[node name="CrashAudio" type="AudioStreamPlayer" parent="HomeSpace/PlayerShip"]
+volume_db = -5.0
+
+[node name="Tunnel" type="Node2D" parent="HomeSpace/PlayerShip" node_paths=PackedStringArray("tunnel_sprite")]
+script = ExtResource("4_yjmyg")
+tunnel_sprite = NodePath("Tunnel")
+
+[node name="Tunnel" type="Sprite2D" parent="HomeSpace/PlayerShip/Tunnel"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("5_1xyw8")
+
+[node name="Visual" type="Node2D" parent="HomeSpace/PlayerShip"]
+
+[node name="Lines" type="Node2D" parent="HomeSpace/PlayerShip/Visual"]
+position = Vector2(0, 2)
+
+[node name="TowLine" parent="HomeSpace/PlayerShip/Visual/Lines" instance=ExtResource("2_2l6yl")]
+position = Vector2(-77, -72)
+
+[node name="TowLine2" parent="HomeSpace/PlayerShip/Visual/Lines" instance=ExtResource("2_2l6yl")]
+position = Vector2(78, -72)
+
+[node name="TowLine3" parent="HomeSpace/PlayerShip/Visual/Lines" instance=ExtResource("2_2l6yl")]
+position = Vector2(-77, 68)
+
+[node name="TowLine4" parent="HomeSpace/PlayerShip/Visual/Lines" instance=ExtResource("2_2l6yl")]
+position = Vector2(78, 68)
+
+[node name="Buy1" parent="HomeSpace/PlayerShip/Visual/Lines" instance=ExtResource("2_2l6yl")]
+visible = false
+position = Vector2(0, -73)
+
+[node name="Buy2" parent="HomeSpace/PlayerShip/Visual/Lines" instance=ExtResource("2_2l6yl")]
+visible = false
+position = Vector2(0, 69)
+
+[node name="Engine" type="Node2D" parent="HomeSpace/PlayerShip/Visual"]
+position = Vector2(-149, 0)
+
+[node name="EngineAudio" type="AudioStreamPlayer" parent="HomeSpace/PlayerShip/Visual/Engine"]
+stream = ExtResource("8_ydkiw")
+volume_db = -12.0
+autoplay = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="HomeSpace/PlayerShip/Visual/Engine"]
+position = Vector2(-4, 0)
+rotation = 3.14159
+amount = 40
+lifetime = 1.5
+emission_shape = 3
+emission_rect_extents = Vector2(20, 62.69)
+spread = 29.09
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_amount_max = 4.0
+color = Color(0, 0.341176, 1, 1)
+
+[node name="ShipSprite" type="Sprite2D" parent="HomeSpace/PlayerShip/Visual"]
+texture = ExtResource("1_1s231")
+
+[node name="Sparks" type="Node2D" parent="HomeSpace/PlayerShip/Visual"]
+
+[node name="SparksAudio" type="AudioStreamPlayer" parent="HomeSpace/PlayerShip/Visual/Sparks"]
+volume_db = -6.0
+
+[node name="Sparks" type="CPUParticles2D" parent="HomeSpace/PlayerShip/Visual/Sparks"]
+position = Vector2(149, -6)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 23.18
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 410.1
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+
+[node name="Sparks2" type="CPUParticles2D" parent="HomeSpace/PlayerShip/Visual/Sparks"]
+position = Vector2(42, 70)
+rotation = 1.55269
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 14.09
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 410.1
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+
+[node name="Sparks3" type="CPUParticles2D" parent="HomeSpace/PlayerShip/Visual/Sparks"]
+position = Vector2(-42, -71)
+rotation = -1.56497
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 14.09
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 410.1
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+
+[node name="Sparks4" type="CPUParticles2D" parent="HomeSpace/PlayerShip/Visual/Sparks"]
+position = Vector2(-148, 58)
+rotation = 2.51053
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 14.09
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 410.1
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+
+[node name="Sparks5" type="CPUParticles2D" parent="HomeSpace/PlayerShip/Visual/Sparks"]
+position = Vector2(-148, -52)
+rotation = 3.46904
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+spread = 14.09
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 410.1
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+
+[node name="Shields" type="Node2D" parent="HomeSpace/PlayerShip/Visual" node_paths=PackedStringArray("forward_shield", "aft_shield")]
+script = ExtResource("5_oup4t")
+forward_shield = NodePath("ShieldForwardSprite")
+aft_shield = NodePath("ShieldAftSprite")
+
+[node name="BreakAudio" type="AudioStreamPlayer" parent="HomeSpace/PlayerShip/Visual/Shields"]
+stream = ExtResource("11_rbhkf")
+volume_db = -10.307
+
+[node name="RechargeAudio" type="AudioStreamPlayer" parent="HomeSpace/PlayerShip/Visual/Shields"]
+stream = ExtResource("12_oa06w")
+volume_db = -3.542
+
+[node name="ShieldForwardSprite" type="Sprite2D" parent="HomeSpace/PlayerShip/Visual/Shields" node_paths=PackedStringArray("shield_break_audio", "shield_recharge_audio")]
+visible = false
+modulate = Color(1, 1, 1, 0.32549)
+position = Vector2(109, 0)
+texture = ExtResource("4_l2ywb")
+script = ExtResource("7_dkd0e")
+shield_break_audio = NodePath("../BreakAudio")
+shield_recharge_audio = NodePath("../RechargeAudio")
+
+[node name="ShieldAftSprite" type="Sprite2D" parent="HomeSpace/PlayerShip/Visual/Shields" node_paths=PackedStringArray("shield_break_audio", "shield_recharge_audio")]
+visible = false
+modulate = Color(1, 1, 1, 0.32549)
+position = Vector2(-109, 0)
+texture = ExtResource("5_fp26h")
+script = ExtResource("7_dkd0e")
+shield_position = 1
+shield_break_audio = NodePath("../BreakAudio")
+shield_recharge_audio = NodePath("../RechargeAudio")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HomeSpace/PlayerShip"]
+polygon = PackedVector2Array(142, -56, 148, -40, 151, -17, 149, 33, 142, 57, 130, 70, -150, 72, -150, 22, -151, -30, -151, -71, 126, -73)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="HomeSpace/PlayerShip"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="ScanRange" type="Area2D" parent="HomeSpace/PlayerShip"]
+collision_layer = 0
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomeSpace/PlayerShip/ScanRange"]
+shape = SubResource("CircleShape2D_bkcnk")
+
+[node name="Stars" type="CPUParticles2D" parent="HomeSpace"]
+amount = 4000
+lifetime = 140.0
+preprocess = 20.0
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(10000, 10000)
+gravity = Vector2(0, 0)
+initial_velocity_max = 20.0
+scale_amount_max = 10.0
+color = Color(0.995766, 1, 0.318056, 1)
+hue_variation_min = -0.26
+hue_variation_max = 0.34
+
+[node name="Skelter" type="Node2D" parent="HomeSpace"]
+position = Vector2(4296, -2472)
+
+[node name="Sprite2D" type="Sprite2D" parent="HomeSpace/Skelter"]
+scale = Vector2(1.75725, 1.75725)
+texture = ExtResource("1_7eqdd")
+
+[node name="Scannable" type="Area2D" parent="HomeSpace/Skelter"]
+script = ExtResource("2_kb3e8")
+label = "Skelter Station"
+description = "Home."
+radar_persistent = true
+show_in_home = true
+color = Color(0, 1, 1, 1)
+pip_size = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomeSpace/Skelter/Scannable"]
+position = Vector2(-341, 267)
+shape = SubResource("CircleShape2D_jfnat")
+
+[node name="Interaction" type="Area2D" parent="HomeSpace/Skelter" node_paths=PackedStringArray("docking_node")]
+script = ExtResource("3_5ohsr")
+docking_node = NodePath("DockingNode")
+label = "Hold [Space] to dock"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomeSpace/Skelter/Interaction"]
+shape = SubResource("CircleShape2D_4rbou")
+
+[node name="DockingNode" type="Node2D" parent="HomeSpace/Skelter/Interaction"]
+position = Vector2(-671, 481)
+rotation = -0.526351
+
+[node name="HomeNebula" type="Node2D" parent="HomeSpace"]
+z_index = 4
+position = Vector2(-1428, -1177)
+
+[node name="Sprite2D" type="Sprite2D" parent="HomeSpace/HomeNebula"]
+modulate = Color(1, 1, 1, 0.211765)
+position = Vector2(4946, -2502)
+scale = Vector2(9.7051, 9.7051)
+texture = ExtResource("12_urbyl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="HomeSpace/HomeNebula"]
+modulate = Color(1, 1, 1, 0.211765)
+position = Vector2(6773, -2531)
+rotation = 0.661277
+scale = Vector2(9.7051, 9.7051)
+texture = ExtResource("12_urbyl")
+
+[node name="Sprite2D3" type="Sprite2D" parent="HomeSpace/HomeNebula"]
+modulate = Color(1, 1, 1, 0.211765)
+position = Vector2(4937, -467)
+rotation = 2.84832
+scale = Vector2(9.7051, 9.7051)
+texture = ExtResource("12_urbyl")
+
+[node name="Sprite2D4" type="Sprite2D" parent="HomeSpace/HomeNebula"]
+modulate = Color(1, 1, 1, 0.211765)
+position = Vector2(7353, -438)
+rotation = 1.97757
+scale = Vector2(9.7051, 9.7051)
+texture = ExtResource("12_urbyl")
+
+[node name="Loot3" parent="HomeSpace" instance=ExtResource("9_351d5")]
+position = Vector2(6045, -4137)
+
+[node name="Loot" parent="HomeSpace" instance=ExtResource("9_351d5")]
+position = Vector2(1038, -1748)
+
+[node name="Loot2" parent="HomeSpace" instance=ExtResource("9_351d5")]
+position = Vector2(5121, -1333)
+
+[node name="Node2D" type="Node2D" parent="HomeSpace"]
+
+[node name="VoidTunnel" type="Node2D" parent="HomeSpace" node_paths=PackedStringArray("sprite", "interaction", "scannable")]
+position = Vector2(-949, 1718)
+script = ExtResource("20_hctpi")
+sprite = NodePath("Sprite")
+interaction = NodePath("Interaction")
+scannable = NodePath("Scannable")
+
+[node name="Sprite" type="Sprite2D" parent="HomeSpace/VoidTunnel"]
+texture = ExtResource("5_1xyw8")
+
+[node name="Scannable" type="Area2D" parent="HomeSpace/VoidTunnel" node_paths=PackedStringArray("size_reference")]
+script = ExtResource("2_kb3e8")
+label = "Void Entrance"
+description = "Beware: Danger Inside"
+size_reference = NodePath("../Sprite")
+radar_persistent = true
+show_in_home = true
+color = Color(0.738367, 0.000416812, 0.738362, 1)
+pip_size = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomeSpace/VoidTunnel/Scannable"]
+shape = SubResource("CircleShape2D_g31gj")
+
+[node name="Interaction" type="Area2D" parent="HomeSpace/VoidTunnel" node_paths=PackedStringArray("tunnel", "teleport_node")]
+script = ExtResource("15_ct0ov")
+tunnel = NodePath("..")
+teleport_node = NodePath("../../../VoidSpace")
+label = "Hold [Space] to enter Void space"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HomeSpace/VoidTunnel/Interaction"]
+position = Vector2(1.5, 5.5)
+shape = SubResource("RectangleShape2D_cgen2")
+
+[node name="VoidSpace" type="Node2D" parent="." node_paths=PackedStringArray("world_area", "exit_tunnel", "gen_parent", "storm_parent")]
+position = Vector2(16358, 43938)
+script = ExtResource("17_gdrky")
+world_area = NodePath("Area2D/CollisionShape2D")
+common_loot_scene = ExtResource("9_351d5")
+rare_loot_scene = ExtResource("20_ohyy0")
+unique_loot_scene = ExtResource("22_mhwug")
+mine_scene = ExtResource("32_ny653")
+exit_tunnel = NodePath("HomeTunnel")
+gen_parent = NodePath("Generated")
+storm_parent = NodePath("ClosingStorm")
+
+[node name="Stars" type="CPUParticles2D" parent="VoidSpace"]
+amount = 2000
+lifetime = 140.0
+preprocess = 20.0
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(25000, 25000)
+gravity = Vector2(0, 0)
+initial_velocity_max = 20.0
+scale_amount_max = 10.0
+color = Color(0, 0.756863, 0, 1)
+hue_variation_min = -0.26
+hue_variation_max = 0.34
+
+[node name="Stars2" type="CPUParticles2D" parent="VoidSpace"]
+amount = 2000
+lifetime = 140.0
+preprocess = 20.0
+explosiveness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(25000, 25000)
+gravity = Vector2(0, 0)
+initial_velocity_max = 20.0
+scale_amount_max = 10.0
+color = Color(0.926871, 0.000740443, 0.934696, 1)
+hue_variation_min = -0.26
+hue_variation_max = 0.34
+
+[node name="Walls" type="Node2D" parent="VoidSpace"]
+
+[node name="HazardWall" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-2242, -1238)
+
+[node name="HazardWall2" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(2285, -2584)
+rotation = 1.63428
+
+[node name="HazardWall3" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(3682, 1264)
+rotation = -0.513859
+
+[node name="HazardWall4" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-2502, 3281)
+rotation = 1.70224
+
+[node name="HazardWall5" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-7231, 247)
+rotation = 1.70224
+
+[node name="HazardWall6" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-9689, -5262)
+rotation = 4.01321
+
+[node name="HazardWall7" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-4553, -8313)
+rotation = 4.01321
+
+[node name="HazardWall8" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(3346, -11127)
+rotation = 4.01321
+
+[node name="HazardWall9" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(9567, -5736)
+rotation = 4.01321
+
+[node name="HazardWall10" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(4855, -6702)
+rotation = 4.01321
+
+[node name="HazardWall11" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(12779, 2746)
+rotation = 4.01321
+
+[node name="HazardWall12" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(7877, 8715)
+rotation = 4.01321
+
+[node name="HazardWall13" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-22, 13795)
+rotation = 4.01321
+
+[node name="HazardWall14" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-7337, 9452)
+rotation = 4.01321
+
+[node name="HazardWall15" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-7007, 5185)
+rotation = 4.01321
+
+[node name="HazardWall16" parent="VoidSpace/Walls" instance=ExtResource("24_7mt7k")]
+position = Vector2(-11883, 1959)
+rotation = 4.01321
+
+[node name="HazardWall_Long" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-4046, 1012)
+rotation = -1.97065
+
+[node name="HazardWall_Long2" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(5711, -4149)
+rotation = -3.32174
+
+[node name="HazardWall_Long3" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-861, -7314)
+rotation = -0.520117
+
+[node name="HazardWall_Long4" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(9904, -4734)
+rotation = -0.357534
+
+[node name="HazardWall_Long5" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(8190, 7805)
+rotation = -0.357534
+
+[node name="HazardWall_Long6" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(6980, 9256)
+rotation = -0.357534
+
+[node name="HazardWall_Long7" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(1336, 12461)
+rotation = -2.2551
+
+[node name="HazardWall_Long8" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-1023, 13449)
+rotation = -4.86348
+
+[node name="HazardWall_Long9" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(2868, 6555)
+rotation = -4.86348
+
+[node name="HazardWall_Long10" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-1244, 6615)
+rotation = -2.34837
+
+[node name="HazardWall_Long11" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-283, 6729)
+rotation = -1.54676
+
+[node name="HazardWall_Long12" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-3736, 7052)
+rotation = -0.192051
+
+[node name="HazardWall_Long13" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(11007, -1267)
+rotation = -0.192051
+
+[node name="HazardWall_Long14" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(8945, 3480)
+rotation = -0.192051
+
+[node name="HazardWall_Long15" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(7075, -163.998)
+rotation = -1.98449
+
+[node name="HazardWall_Long16" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-10353, -7787)
+rotation = -1.98449
+
+[node name="HazardWall_Long17" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-11144, -7188)
+rotation = -3.84418
+
+[node name="HazardWall_Long18" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-5894, -3976)
+rotation = -3.84418
+
+[node name="HazardWall_Long19" parent="VoidSpace/Walls" instance=ExtResource("32_hofcr")]
+position = Vector2(-1404, -12094)
+rotation = -3.84418
+
+[node name="ClosingStorm" type="Node2D" parent="VoidSpace"]
+
+[node name="Storm" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm2" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm3" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm4" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm5" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm6" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm7" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm8" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm9" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm10" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm11" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm12" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm13" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm14" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm15" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm16" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm17" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm18" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm19" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm20" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm21" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm22" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm23" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm24" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm25" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm26" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm27" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm28" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm29" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm30" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm31" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm32" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm33" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm34" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm35" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm36" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm37" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm38" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm39" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm40" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm41" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm42" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm43" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm44" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm45" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm46" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm47" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm48" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm49" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Storm50" parent="VoidSpace/ClosingStorm" instance=ExtResource("23_ccchq")]
+
+[node name="Area2D" type="Area2D" parent="VoidSpace"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoidSpace/Area2D"]
+position = Vector2(34, 15)
+shape = SubResource("CircleShape2D_ucw35")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="HomeTunnel" type="Node2D" parent="VoidSpace" node_paths=PackedStringArray("sprite", "interaction", "scannable")]
+position = Vector2(-2580, -2636)
+script = ExtResource("20_hctpi")
+sprite = NodePath("Sprite")
+interaction = NodePath("Interaction")
+scannable = NodePath("Scannable")
+
+[node name="Sprite" type="Sprite2D" parent="VoidSpace/HomeTunnel"]
+texture = ExtResource("5_1xyw8")
+
+[node name="Scannable" type="Area2D" parent="VoidSpace/HomeTunnel" node_paths=PackedStringArray("size_reference")]
+script = ExtResource("2_kb3e8")
+label = "Void Exit"
+description = "Return home"
+size_reference = NodePath("../Sprite")
+radar_persistent = true
+show_in_void = true
+color = Color(0.738367, 0.000416812, 0.738362, 1)
+pip_size = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoidSpace/HomeTunnel/Scannable"]
+shape = SubResource("CircleShape2D_g31gj")
+
+[node name="Interaction" type="Area2D" parent="VoidSpace/HomeTunnel" node_paths=PackedStringArray("teleport_node")]
+script = ExtResource("15_ct0ov")
+teleport_node = NodePath("../../../HomeSpace/VoidTunnel")
+teleport_home = true
+label = "Hold [Space] to return home."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoidSpace/HomeTunnel/Interaction"]
+position = Vector2(1.5, 5.5)
+shape = SubResource("RectangleShape2D_cgen2")
+
+[node name="Generated" type="Node2D" parent="VoidSpace"]
+
+[node name="ScannerUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 940.0
+offset_top = 520.0
+offset_right = 980.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("36_j1ioa")
+
+[node name="Scanner" parent="ScannerUI" instance=ExtResource("12_pck3s")]
+visible = false
+layout_mode = 1
+
+[node name="Scanner2" parent="ScannerUI" instance=ExtResource("12_pck3s")]
+visible = false
+layout_mode = 1
+
+[node name="Scanner3" parent="ScannerUI" instance=ExtResource("12_pck3s")]
+visible = false
+layout_mode = 1
+
+[node name="Scanner4" parent="ScannerUI" instance=ExtResource("12_pck3s")]
+visible = false
+layout_mode = 1
+
+[node name="Scanner5" parent="ScannerUI" instance=ExtResource("12_pck3s")]
+visible = false
+layout_mode = 1
+
+[node name="GameUI" type="CanvasLayer" parent="." node_paths=PackedStringArray("interaction_label", "skelter_ui", "report_ui", "pause_ui", "lose_ui", "game_over_ui", "win_ui", "credits_label", "quota_label", "tick_audio")]
+script = ExtResource("10_ww45e")
+interaction_label = NodePath("InteractionLabel")
+skelter_ui = NodePath("SkelterUI")
+report_ui = NodePath("ReportUI")
+pause_ui = NodePath("PauseUI")
+lose_ui = NodePath("LoseUI")
+game_over_ui = NodePath("GameOverUI")
+win_ui = NodePath("WinUI")
+credits_label = NodePath("CurrencyVertical/CreditsLabel")
+quota_label = NodePath("CurrencyVertical/QuotaLabel")
+tick_audio = NodePath("TickAudio")
+
+[node name="TickAudio" type="AudioStreamPlayer" parent="GameUI"]
+
+[node name="ShipBackground" type="TextureRect" parent="GameUI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -173.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("29_fs228")
+expand_mode = 1
+
+[node name="ShipUI" type="Control" parent="GameUI" node_paths=PackedStringArray("speed_label", "shield_forward", "shield_aft", "hull")]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -206.0
+offset_top = -253.0
+offset_right = 208.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_hssbd")
+speed_label = NodePath("SpeedLabel")
+shield_forward = NodePath("Health/ShieldForward")
+shield_aft = NodePath("Health/ShieldAft")
+hull = NodePath("Health/Hull")
+
+[node name="SpeedLabel" type="Label" parent="GameUI/ShipUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -39.0
+offset_right = 168.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 28
+text = "Speed: 300 m/s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Control" parent="GameUI/ShipUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -66.0
+offset_top = -180.0
+offset_right = 52.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hull" type="TextureRect" parent="GameUI/ShipUI/Health"]
+modulate = Color(0, 1, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.454
+anchor_top = 0.43
+anchor_right = 0.454
+anchor_bottom = 0.43
+offset_left = -44.562
+offset_top = 44.59
+offset_right = 44.438
+offset_bottom = 133.59
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.57079
+texture = ExtResource("33_fdrhc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ShieldForward" type="TextureRect" parent="GameUI/ShipUI/Health"]
+modulate = Color(0.101961, 1, 0, 0.580392)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.459
+anchor_top = 0.241
+anchor_right = 0.459
+anchor_bottom = 0.241
+offset_left = -35.077
+offset_top = 34.933
+offset_right = 34.923
+offset_bottom = 104.933
+rotation = -1.57079
+texture = ExtResource("31_yqtvb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ShieldAft" type="TextureRect" parent="GameUI/ShipUI/Health"]
+modulate = Color(0.101961, 1, 0, 0.580392)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.452
+anchor_top = 0.607
+anchor_right = 0.452
+anchor_bottom = 0.607
+offset_left = 35.044
+offset_top = -29.509
+offset_right = 105.044
+offset_bottom = 40.491
+rotation = -4.71238
+texture = ExtResource("31_yqtvb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RadarUI" type="Control" parent="GameUI" node_paths=PackedStringArray("radar_background", "pips")]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -166.0
+offset_right = -9.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("25_a244m")
+radar_background = NodePath("Screen")
+pips = [NodePath("Screen/Pip"), NodePath("Screen/Pip2"), NodePath("Screen/Pip3"), NodePath("Screen/Pip4"), NodePath("Screen/Pip5"), NodePath("Screen/Pip6")]
+
+[node name="Screen" type="TextureRect" parent="GameUI/RadarUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_kx4pd")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Center" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(1, 0, 0, 0.54902)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_x50ai")
+expand_mode = 1
+
+[node name="Pip" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(0, 0.835294, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("17_x50ai")
+expand_mode = 1
+
+[node name="Pip2" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(0, 0.835294, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("17_x50ai")
+expand_mode = 1
+
+[node name="Pip3" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(0, 0.835294, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("17_x50ai")
+expand_mode = 1
+
+[node name="Pip4" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(0, 0.835294, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("17_x50ai")
+expand_mode = 1
+
+[node name="Pip5" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(0, 0.835294, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("17_x50ai")
+expand_mode = 1
+
+[node name="Pip6" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(0, 0.835294, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.5
+offset_top = -8.5
+offset_right = 7.5
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 8)
+texture = ExtResource("17_x50ai")
+expand_mode = 1
+
+[node name="Background" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+modulate = Color(0.176419, 0.176419, 0.176419, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_rfhvc")
+expand_mode = 1
+
+[node name="Overlay" type="TextureRect" parent="GameUI/RadarUI/Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("35_5rru7")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="RadioUI" type="Control" parent="GameUI" node_paths=PackedStringArray("line_container", "chat_start_audio")]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -163.0
+offset_right = 714.0
+offset_bottom = -7.0
+grow_vertical = 0
+script = ExtResource("23_4ypoj")
+line_container = NodePath("VBoxContainer")
+chat_start_audio = NodePath("ChatStartAudio")
+
+[node name="ChatStartAudio" type="AudioStreamPlayer" parent="GameUI/RadioUI"]
+stream = ExtResource("31_xtrtr")
+volume_db = -4.0
+
+[node name="TextureRect" type="ColorRect" parent="GameUI/RadioUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.165656, 0.165656, 0.165656, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/RadioUI"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 700.0
+offset_bottom = 154.0
+alignment = 2
+
+[node name="Label" parent="GameUI/RadioUI/VBoxContainer" instance=ExtResource("24_monpl")]
+layout_mode = 2
+
+[node name="Label2" parent="GameUI/RadioUI/VBoxContainer" instance=ExtResource("24_monpl")]
+layout_mode = 2
+
+[node name="Label3" parent="GameUI/RadioUI/VBoxContainer" instance=ExtResource("24_monpl")]
+layout_mode = 2
+
+[node name="Label4" parent="GameUI/RadioUI/VBoxContainer" instance=ExtResource("24_monpl")]
+layout_mode = 2
+
+[node name="Label5" parent="GameUI/RadioUI/VBoxContainer" instance=ExtResource("24_monpl")]
+layout_mode = 2
+
+[node name="ProgressUI" type="Control" parent="GameUI" node_paths=PackedStringArray("date_label", "trip_rects")]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -391.0
+offset_top = -2.0
+offset_right = 391.0
+offset_bottom = 171.0
+grow_horizontal = 2
+script = ExtResource("34_yci66")
+date_label = NodePath("DateLabel")
+trip_rects = [NodePath("VoidTrips/ColorRect"), NodePath("VoidTrips/ColorRect2")]
+
+[node name="DateLabel" type="Label" parent="GameUI/ProgressUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -590.0
+offset_top = 2.0
+offset_right = 590.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 40
+text = "May 2348"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VoidTrips" type="HBoxContainer" parent="GameUI/ProgressUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -84.0
+offset_right = 199.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/ProgressUI/VoidTrips"]
+custom_minimum_size = Vector2(64, 4)
+layout_mode = 2
+color = Color(0.637843, 0.637843, 0.637843, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GameUI/ProgressUI/VoidTrips"]
+custom_minimum_size = Vector2(64, 4)
+layout_mode = 2
+color = Color(0.637843, 0.637843, 0.637843, 1)
+
+[node name="InteractionLabel" type="Label" parent="GameUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -303.0
+offset_top = -220.0
+offset_right = 307.0
+offset_bottom = -168.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 34
+text = "Hold Space to dock"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrencyVertical" type="VBoxContainer" parent="GameUI"]
+offset_left = 7.0
+offset_top = 10.0
+offset_right = 402.0
+offset_bottom = 187.0
+
+[node name="CreditsLabel" type="Label" parent="GameUI/CurrencyVertical"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "Credits: 1000"
+
+[node name="QuotaLabel" type="Label" parent="GameUI/CurrencyVertical"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "Quota: 0/1000"
+
+[node name="SkelterUI" type="Control" parent="GameUI" node_paths=PackedStringArray("news_button", "shipyard_button", "deliver_button", "undock_button", "news_page", "shipyard_page", "deliver_page", "ambient_audio")]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -345.0
+offset_right = 560.0
+offset_bottom = 232.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_p1njf")
+news_button = NodePath("MainPanel/ButtonVertical/NewsButton")
+shipyard_button = NodePath("MainPanel/ButtonVertical/ShipyardButton")
+deliver_button = NodePath("MainPanel/ButtonVertical/DeliverButton")
+undock_button = NodePath("MainPanel/UndockButton")
+news_page = NodePath("MainPanel/StatePanel/News")
+shipyard_page = NodePath("MainPanel/StatePanel/Shipyard")
+deliver_page = NodePath("MainPanel/StatePanel/Deliver")
+ambient_audio = NodePath("AmbientAudio")
+
+[node name="AmbientAudio" type="AudioStreamPlayer" parent="GameUI/SkelterUI"]
+stream = ExtResource("43_gpn13")
+volume_db = -20.0
+pitch_scale = 0.86
+
+[node name="MainPanel" type="Panel" parent="GameUI/SkelterUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameUI/SkelterUI/MainPanel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 399.0
+offset_right = -82.0
+offset_bottom = 67.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 34
+text = "Welcome home Trawler 861"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatePanel" type="Panel" parent="GameUI/SkelterUI/MainPanel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -722.5
+offset_top = -219.5
+offset_right = -82.5
+offset_bottom = 220.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="News" type="Control" parent="GameUI/SkelterUI/MainPanel/StatePanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GameUI/SkelterUI/MainPanel/StatePanel/News"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameUI/SkelterUI/MainPanel/StatePanel/News/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="Label" type="Label" parent="GameUI/SkelterUI/MainPanel/StatePanel/News/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 22
+text = "-----------------------
+~January 2348~
+-----------------------
+* Reports of 4 more Trawlers lost to void space.
+-------------------
+~April 2345~
+-------------------
+* Resources running dangerously low.
+* Void space discovered.
+* Scouts report that Void space rich in materials.
+---------------------------
+~November 2344~
+---------------------------
+* Nebula discovered.
+* Skelter station successfully deployed in nebula.
+* Aliens unable to scan nebula."
+
+[node name="Shipyard" type="Control" parent="GameUI/SkelterUI/MainPanel/StatePanel" node_paths=PackedStringArray("repair_button")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("53_1jqce")
+repair_button = NodePath("VBoxContainer/RepairButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/SkelterUI/MainPanel/StatePanel/Shipyard"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = 45.0
+offset_right = 82.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RepairButton" type="Button" parent="GameUI/SkelterUI/MainPanel/StatePanel/Shipyard/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 32
+text = "Repair Hull: 200"
+
+[node name="Deliver" type="Control" parent="GameUI/SkelterUI/MainPanel/StatePanel" node_paths=PackedStringArray("label", "no_loot_label", "sell_button")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("34_d4tec")
+label = NodePath("MarginContainer/Label")
+no_loot_label = NodePath("MarginContainer/NoLootLabel")
+sell_button = NodePath("SellButton")
+
+[node name="MarginContainer" type="MarginContainer" parent="GameUI/SkelterUI/MainPanel/StatePanel/Deliver"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 101.0
+offset_top = 70.5
+offset_right = -101.0
+offset_bottom = -98.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="Label" type="Label" parent="GameUI/SkelterUI/MainPanel/StatePanel/Deliver/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+
+[node name="NoLootLabel" type="Label" parent="GameUI/SkelterUI/MainPanel/StatePanel/Deliver/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 0.74902, 0, 1)
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 28
+text = "Tow beams empty!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SellButton" type="Button" parent="GameUI/SkelterUI/MainPanel/StatePanel/Deliver"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -164.5
+offset_top = -58.5
+offset_right = 164.5
+offset_bottom = -18.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 32
+text = "Sell Scrap"
+script = ExtResource("49_k515r")
+
+[node name="ButtonVertical" type="VBoxContainer" parent="GameUI/SkelterUI/MainPanel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -136.5
+offset_right = 303.0
+offset_bottom = 56.5
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="NewsButton" type="Button" parent="GameUI/SkelterUI/MainPanel/ButtonVertical"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 28
+text = "News"
+script = ExtResource("49_k515r")
+
+[node name="ShipyardButton" type="Button" parent="GameUI/SkelterUI/MainPanel/ButtonVertical"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 28
+text = "Shipyard"
+script = ExtResource("49_k515r")
+
+[node name="DeliverButton" type="Button" parent="GameUI/SkelterUI/MainPanel/ButtonVertical"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 28
+text = "Sell"
+script = ExtResource("49_k515r")
+
+[node name="UndockButton" type="Button" parent="GameUI/SkelterUI/MainPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -159.0
+offset_right = 376.0
+offset_bottom = -70.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 40
+text = "Undock"
+script = ExtResource("49_k515r")
+
+[node name="ReportUI" type="Control" parent="GameUI" node_paths=PackedStringArray("month_label", "stability_label", "quota_label", "delta_label", "button")]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -355.0
+offset_right = 343.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("43_8jslf")
+month_label = NodePath("Panel/MonthLabel")
+stability_label = NodePath("Panel/VBoxContainer/StabilityLabel")
+quota_label = NodePath("Panel/VBoxContainer/QuotaLabel")
+delta_label = NodePath("Panel/VBoxContainer/DeltaLabel")
+button = NodePath("Panel/Button")
+
+[node name="Panel" type="Panel" parent="GameUI/ReportUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="GameUI/ReportUI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.0
+offset_top = 9.0
+offset_right = 138.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 30
+text = "Monthly Report"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MonthLabel" type="Label" parent="GameUI/ReportUI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -137.0
+offset_top = 68.0
+offset_right = 138.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 50
+text = "May"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/ReportUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -55.0
+offset_right = 280.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StabilityLabel" type="Label" parent="GameUI/ReportUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "Station Stability: Good"
+horizontal_alignment = 1
+
+[node name="QuotaLabel" type="Label" parent="GameUI/ReportUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "Material Quota: 0/1000"
+horizontal_alignment = 1
+
+[node name="DeltaLabel" type="Label" parent="GameUI/ReportUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "Stability Change: DOWN"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="GameUI/ReportUI/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -105.0
+offset_right = 89.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 30
+text = "Next Month"
+script = ExtResource("49_k515r")
+
+[node name="PauseUI" type="Control" parent="GameUI" node_paths=PackedStringArray("resume_button", "quit_button")]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("58_saigo")
+resume_button = NodePath("Panel/VBoxContainer/ResumeButton")
+quit_button = NodePath("Panel/VBoxContainer/QuitButton")
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/PauseUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+
+[node name="Panel" type="Panel" parent="GameUI/PauseUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.0
+offset_top = -233.0
+offset_right = 234.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GameUI/PauseUI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_top = 14.5
+offset_right = 52.5
+offset_bottom = 47.5
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 34
+text = "Pause"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/PauseUI/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.5
+offset_top = -39.5
+offset_right = 154.5
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="GameUI/PauseUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "Resume"
+script = ExtResource("49_k515r")
+
+[node name="QuitButton" type="Button" parent="GameUI/PauseUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "Quit
+"
+script = ExtResource("49_k515r")
+
+[node name="InputUI" type="Control" parent="GameUI" node_paths=PackedStringArray("panel", "show_label")]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -387.0
+offset_right = 332.0
+offset_bottom = -169.0
+grow_vertical = 2
+script = ExtResource("59_3efvv")
+panel = NodePath("Panel")
+show_label = NodePath("ShowLabel")
+
+[node name="ShowLabel" type="Label" parent="GameUI/InputUI"]
+layout_mode = 1
+offset_left = 2.0
+offset_top = -28.0
+offset_right = 137.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 22
+text = "Controls (Tab)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="GameUI/InputUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/InputUI/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.5
+offset_top = 8.0
+offset_right = 125.5
+offset_bottom = 143.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="GameUI/InputUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 24
+text = "W/S - Forward/Backward"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GameUI/InputUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 24
+text = "A/D - Left/Right"
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="GameUI/InputUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 24
+text = "Space - Brake / Interact"
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="GameUI/InputUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 24
+text = "RMB - Boost"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="GameUI/InputUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 24
+text = "LMB - Collect resources"
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="GameUI/InputUI/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 24
+text = "Mouse Wheel - Zoom"
+vertical_alignment = 1
+
+[node name="LoseUI" type="Control" parent="GameUI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("62_iejmy")
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/LoseUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.780392)
+
+[node name="Label" type="Label" parent="GameUI/LoseUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -182.0
+offset_right = 36.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 80
+text = "You died!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RespawnButton" type="Button" parent="GameUI/LoseUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -88.0
+offset_right = 87.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 32
+text = "Respawn"
+
+[node name="QuitButton" type="Button" parent="GameUI/LoseUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -11.0
+offset_right = 87.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 32
+text = "Quit"
+
+[node name="GameOverUI" type="Control" parent="GameUI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("63_iv1s5")
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/GameOverUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.780392)
+
+[node name="Label" type="Label" parent="GameUI/GameOverUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -182.0
+offset_right = 36.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 80
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GameUI/GameOverUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = -125.0
+offset_right = 243.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "The station has lost all stability and been detected by the aliens..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RestartButton" type="Button" parent="GameUI/GameOverUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -11.0
+offset_right = 87.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="WinUI" type="Control" parent="GameUI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("64_kf6de")
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/WinUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.780392)
+
+[node name="Label" type="Label" parent="GameUI/WinUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -182.0
+offset_right = 36.0
+offset_bottom = -159.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 80
+text = "You Win!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GameUI/WinUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = -125.0
+offset_right = 243.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 26
+text = "The station now has enough resources to look for a longer term solution!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="GameUI/WinUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -11.0
+offset_right = 87.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_7cku6")
+theme_override_font_sizes/font_size = 32
+text = "Main Menu"
+
+[connection signal="body_exited" from="HomeSpace/PlayerShip" to="HomeSpace/PlayerShip" method="_on_body_exited"]
+[connection signal="pressed" from="GameUI/LoseUI/RespawnButton" to="GameUI/LoseUI" method="_on_respawn_button_pressed"]
+[connection signal="pressed" from="GameUI/LoseUI/QuitButton" to="GameUI/LoseUI" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="GameUI/GameOverUI/RestartButton" to="GameUI/GameOverUI" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameUI/WinUI/MainMenuButton" to="GameUI/WinUI" method="_on_main_menu_button_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ibkehnofhbw5"]
+
+[ext_resource type="FontFile" uid="uid://depucenggg67x" path="res://Fonts/LcdPhone-wgZ2.ttf" id="1_2r3x1"]
+[ext_resource type="Script" path="res://Scripts/UI/radio_label.gd" id="2_qfgnr"]
+
+[node name="RadioLabel" type="Label"]
+custom_minimum_size = Vector2(648, 22)
+offset_right = 648.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("1_2r3x1")
+theme_override_font_sizes/font_size = 20
+text = "Welcome home Trawler 861"
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_qfgnr")

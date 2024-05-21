@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cswq5f2f6rb58"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/hazard_wall.gd" id="1_a1ls6"]
+[ext_resource type="Texture2D" uid="uid://bs6ljkjqyo5j5" path="res://Sprites/hazard_wall_1.png" id="1_r76yn"]
+
+[node name="HazardWall" type="StaticBody2D"]
+script = ExtResource("1_a1ls6")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-88, -321, 320, -89, 286, -69, 244, -64, 195, -84, 21, -189, -65, -181, -105, -116, -106, -61, -80, 2, -65, 55, -67, 129, -105, 179, -322, 88)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.520674
+texture = ExtResource("1_r76yn")

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqjbjyrmtpxrp"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/loot.gd" id="1_ke1ep"]
+[ext_resource type="Texture2D" uid="uid://bf7qhaftgyuop" path="res://Sprites/loot_metal.png" id="2_b0bb3"]
+[ext_resource type="Script" path="res://Scripts/Environment/scannable.gd" id="3_oshpd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6wb5"]
+radius = 44.0114
+
+[node name="Loot" type="Node2D" node_paths=PackedStringArray("area", "scannable", "particles")]
+script = ExtResource("1_ke1ep")
+area = NodePath("Scannable")
+scannable = NodePath("Scannable")
+particles = NodePath("CPUParticles2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_b0bb3")
+
+[node name="Scannable" type="Area2D" parent="." node_paths=PackedStringArray("size_reference")]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("3_oshpd")
+label = "Void Material (Common)"
+description = "Can be sold"
+size_reference = NodePath("../Sprite2D")
+color = Color(0, 0.866667, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scannable"]
+shape = SubResource("CircleShape2D_o6wb5")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+lifetime = 20.0
+preprocess = 20.0
+emission_shape = 1
+emission_sphere_radius = 40.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 260.0
+scale_amount_min = 8.0
+scale_amount_max = 10.0

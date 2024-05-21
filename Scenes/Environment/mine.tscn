@@ -1,0 +1,85 @@
+[gd_scene load_steps=9 format=3 uid="uid://fs3q206rgnuc"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/mine.gd" id="1_5y8sl"]
+[ext_resource type="AudioStream" uid="uid://cuymqkn3luvk5" path="res://Audio/ui_pressed.ogg" id="2_njboa"]
+[ext_resource type="Texture2D" uid="uid://bgfxkg7kyl5iv" path="res://Sprites/mine.png" id="3_sa8fl"]
+[ext_resource type="AudioStream" uid="uid://cp8kogx2l6e5a" path="res://Audio/boom.ogg" id="3_vyl78"]
+[ext_resource type="Texture2D" uid="uid://65ptiuir71ip" path="res://Sprites/mine_counter.png" id="4_o6rp7"]
+[ext_resource type="Script" path="res://Scripts/Environment/scannable.gd" id="5_spupw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_diepy"]
+radius = 823.119
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_51no0"]
+radius = 98.0459
+
+[node name="Mine" type="RigidBody2D" node_paths=PackedStringArray("visual", "count_audio", "explode_audio", "particles", "counters", "scannable")]
+gravity_scale = 0.0
+can_sleep = false
+lock_rotation = true
+script = ExtResource("1_5y8sl")
+visual = NodePath("Background")
+count_audio = NodePath("CountAudio")
+explode_audio = NodePath("ExplodeAudio")
+particles = NodePath("CPUParticles2D")
+counters = [NodePath("Background/Counter"), NodePath("Background/Counter2"), NodePath("Background/Counter3")]
+scannable = NodePath("Scannable")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -8)
+polygon = PackedVector2Array(-1, -51, -52, 51, 53, 51)
+
+[node name="CountAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_njboa")
+
+[node name="ExplodeAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vyl78")
+volume_db = -13.117
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.72
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+scale_amount_min = 4.0
+scale_amount_max = 10.0
+color = Color(1, 0, 0, 1)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_sa8fl")
+
+[node name="Counter" type="Sprite2D" parent="Background"]
+position = Vector2(-1, -34)
+texture = ExtResource("4_o6rp7")
+
+[node name="Counter2" type="Sprite2D" parent="Background"]
+position = Vector2(-1, 20)
+texture = ExtResource("4_o6rp7")
+
+[node name="Counter3" type="Sprite2D" parent="Background"]
+position = Vector2(-1, 76)
+texture = ExtResource("4_o6rp7")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_diepy")
+
+[node name="Scannable" type="Area2D" parent="."]
+script = ExtResource("5_spupw")
+label = "Mine"
+description = "Move slowly!"
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scannable"]
+shape = SubResource("CircleShape2D_51no0")
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

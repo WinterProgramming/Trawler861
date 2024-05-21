@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvbsq43vunq6d"]
+
+[ext_resource type="PackedScene" uid="uid://cswq5f2f6rb58" path="res://Scenes/Environment/hazard_wall_1.tscn" id="1_3yok6"]
+[ext_resource type="Texture2D" uid="uid://dpnsrosq7eemu" path="res://Sprites/hazard_wall_2.png" id="2_6nxhs"]
+
+[node name="HazardWall_Long" instance=ExtResource("1_3yok6")]
+
+[node name="CollisionPolygon2D" parent="." index="0"]
+polygon = PackedVector2Array(104, -411, 155, -475, 331, -383, 309, -353, 176, -292, 146, -205, 158, -125, 126, -80, 28, 7, -29, 92, -37, 234, -141, 486, -337, 372, -221, 184, -117, 39, -100, -50, -5, -185, 70, -293)
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_6nxhs")

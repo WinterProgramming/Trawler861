@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj408wuoohmg7"]
+
+[ext_resource type="Script" path="res://Scripts/Ship/tow_line.gd" id="1_q5gnq"]
+[ext_resource type="Texture2D" uid="uid://c5ctes01sub3h" path="res://Sprites/tow_bubble.png" id="2_6fx1m"]
+[ext_resource type="AudioStream" uid="uid://d38st87c78evs" path="res://Audio/tow_beam_holding.ogg" id="3_tle28"]
+[ext_resource type="AudioStream" uid="uid://dh3kx8507ddcv" path="res://Audio/tow_beam_fire.ogg" id="4_36ty7"]
+
+[sub_resource type="Curve" id="Curve_735be"]
+_data = [Vector2(0, 0.307692), 0.0, 0.0, 0, 0, Vector2(0.717822, 0.483516), 0.887912, 0.887912, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwgxu"]
+radius = 54.0093
+
+[node name="TowLine" type="Line2D" node_paths=PackedStringArray("bubble", "fire_audio", "holding_audio")]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 20.0
+width_curve = SubResource("Curve_735be")
+default_color = Color(0.539552, 0.673282, 0.967524, 1)
+script = ExtResource("1_q5gnq")
+bubble = NodePath("Bubble")
+fire_audio = NodePath("FireAudio")
+holding_audio = NodePath("HoldAudio")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_6fx1m")
+
+[node name="Area2D" type="Area2D" parent="Bubble"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bubble/Area2D"]
+shape = SubResource("CircleShape2D_mwgxu")
+
+[node name="FireAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_36ty7")
+volume_db = -7.495
+
+[node name="HoldAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_tle28")
+
+[connection signal="area_entered" from="Bubble/Area2D" to="." method="_on_area_2d_area_entered"]
